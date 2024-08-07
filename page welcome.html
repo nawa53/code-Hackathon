@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Server Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: white;
+        }
+        .header {
+            background-color: #000000;
+            color: darkgoldenrod;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            color: darkgoldenrod;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .banner {
+            background-color: #ffffff;
+            color: #b8860d;
+            padding: 20px;
+            text-align: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px;
+            margin: 20px;
+        }
+        .option {
+            background-color: #2b2b2b;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: darkgoldenrod;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .option img {
+            border-radius: 50%;
+            width: 80px; /* ขนาดรูปภาพ */
+            height: 80px;
+            object-fit: cover; /* ให้รูปภาพครอบคลุมพื้นที่ */
+        }
+        .option h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+        .option p {
+            color: #ddd;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .option a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: 2px solid #00ff00;
+            border-radius: 4px;
+            background-color: #2b2b2b;
+            color: #00ff00;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            outline: none;
+            box-shadow: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <span>WinitPT</span> | Data platform
+        </div>
+        <div>
+            <a href="#">Downloads</a>
+            <a href="#">Community</a>
+            <a href="#">Developer</a>
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+
+    <div class="banner">
+        <h1>ยินดีต้อนรับสู่ระบบ Ranking Database - Parliament</h1>
+    </div>
+
+    <div class="options">
+        <div class="option">
+            <img src="images/person1.jpg" alt="#">
+            <div>
+                <h2>นายสมชาย ตัวอย่าง</h2>
+                <p>พรรค: ตัวอย่างพรรค</p>
+                <p>เขต: เขต 1</p>
+                <a href="azure.html">รายละเอียด</a>
+            </div>
+        </div>
+        <div class="option">
+            <img src="images/person2.jpg" alt="#">
+            <div>
+                <h2>นายสมศักดิ์ ตัวอย่าง</h2>
+                <p>พรรค: ตัวอย่างพรรค</p>
+                <p>เขต: เขต 1</p>
+                <a href="edge.html">รายละเอียด</a>
+            </div>
+        </div>
+        <div class="option">
+            <img src="images/person3.jpg" alt="#">
+            <div>
+                <h2>นายสมเกียร์ต ตัวอย่าง</h2>
+                <p>พรรค: ตัวอย่างพรรค</p>
+                <p>เขต: เขต 1</p>
+                <a href="on-premises.html">รายละเอียด</a>
+            </div>
+        </div>
+        <div class="option">
+            <img src="images/person4.jpg" alt="#">
+            <div>
+                <h2>นายจิดธรรม ตัวอย่าง</h2>
+                <p>พรรค: ตัวอย่างพรรค</p>
+                <p>เขต: เขต 9</p>
+                <a href="down-graph.html">รายละเอียด</a>
+            </div>
+        </div>
+        <div class="option">
+            <img src="images/person5.jpg" alt="#">
+            <div>
+                <h2>นายมามี ตัวอย่าง</h2>
+                <p>พรรค: ตัวอย่างพรรค</p>
+                <p>เขต: เขต 1</p>
+                <a href="down-graph2.html">รายละเอียด</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Go to page down</p>
+    </div>
+</body>
+</html>

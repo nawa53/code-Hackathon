@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรไฟล์สมาชิกผู้เเทนราษฎร</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .profile-picture {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            font-size: 18px;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+            align-self: flex-start; /* Align the chart container to the start (left) */
+            padding-left: 20px; /* Add padding to the left */
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="profile-container">
+            <div class="profile-picture">
+                <img src="https://via.placeholder.com/100" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+                <p>ชื่อ: นายสมชาย ตัวอย่าง</p>
+                <p>เขต: เขต 1</p>
+                <p>จังหวัด: กรุงเทพมหานคร</p>
+                <p>พรรค: ตัวอย่างพรรค</p>
+            </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="radarChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        const data = {
+            labels: ['ความน่าเชื่อถือ', 'ประสบการณ์', 'วิสัยทัศน์', 'ความถี่ในการทำงาน', 'การสื่อสาร'],
+            datasets: [{
+                label: 'คะแนน',
+                data: [3, 4, 2, 1, 3],
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(255, 99, 132, 1)'
+            }]
+        };
+        const config = {
+            type: 'radar',
+            data: data,
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: '#333'
+                        },
+                        grid: {
+                            color: '#333'
+                        },
+                        pointLabels: {
+                            color: '#ffffff'
+                        },
+                        ticks: {
+                            display: false // Hide the scale ticks
+                        },
+                        suggestedMin: 0, // Minimum value for the radar chart
+                        suggestedMax: 5  // Maximum value for the radar chart
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true // Show the legend if needed
+                    }
+                }
+            }
+        };
+        new Chart(ctx, config);
+    </script>
+</body>
+</html>

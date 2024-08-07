@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ล็อกอิน</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #1e1e1e;
+            padding: 40px; /* เพิ่ม padding เพื่อให้มีพื้นที่เพียงพอ */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 500px; /* ขยายขนาดกรอบ */
+            width: 100%;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px; /* เพิ่ม padding */
+            margin: 10px 0;
+            border-radius: 4px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px; /* เพิ่ม padding */
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .login-container .footer-text {
+            position: absolute;
+            bottom: 1px; /* ขยับข้อความลงมาอีก */
+            left: 15px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .login-container .footer-text a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-container .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>เข้าสู่ระบบ</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="ชื่อผู้ใช้" required>
+            <input type="password" id="password" placeholder="รหัสผ่าน" required>
+            <button type="submit">เข้าสู่ระบบ</button>
+        </form>
+        <div class="footer-text">
+            <p>ไม่มีบัญชี? <a href="register.html">ลงทะเบียนที่นี่</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // ป้องกันการส่งฟอร์มแบบดั้งเดิม
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // ส่งข้อมูลไปยังเซิร์ฟเวอร์เพื่อทำการตรวจสอบ
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // การล็อกอินสำเร็จ
+                    alert('เข้าสู่ระบบสำเร็จ');
+                    // เปลี่ยนเส้นทางไปยังหน้าโปรไฟล์หรือหน้าอื่น
+                    window.location.href = '/profile';
+                } else {
+                    // การล็อกอินล้มเหลว
+                    alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
